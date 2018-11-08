@@ -1,5 +1,9 @@
 Hola!
 Esta es una prueba de Git
 Esta es una nueva l’nea que no dice nada.
-La nueva rama no me gusta
+Otra mas
+Otra forma de llenar una linea y van 4
+La nueva rama no me gusta 
+Pero la aguantamos por el merge final
+
 
