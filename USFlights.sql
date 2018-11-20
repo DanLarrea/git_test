@@ -9,7 +9,7 @@ FROM Flights GROUP BY Origin, colYear, colMonth
 ORDER BY Origin, colYear, colMonth;
 
 SELECT USAirports.City, Flights.colYear, Flights.colMonth, AVG (Flights.ArrDelay)
-FROM USAirports JOIN Flights
+FROM USAirports INNER JOIN Flights
 ON USAirports.IATA = Flights.Origin
 GROUP BY USAirports.City, Flights.colYear, Flights.colMonth
 ORDER BY USAirports.City, Flights.colYear, Flights.colMonth;
@@ -20,10 +20,11 @@ WHERE Carriers.CarrierCode = Flights.UniqueCarrier
 GROUP BY Carriers.Description, Flights.Cancelled
 ORDER BY CancelledFlights DESC;
 
-SELECT TailNum, Distance
+SELECT TailNum, SUM(Distance)
 FROM Flights
 WHERE TailNum NOT LIKE 'NA'
-ORDER BY Distance DESC LIMIT 0,10;
+GROUP BY TailNum, Distance
+ORDER BY SUM(Distance) DESC LIMIT 0,10;
 
 SELECT CARRIERS.Description, AVG (Flights.ArrDelay) AS Average
 FROM Carriers, Flights
