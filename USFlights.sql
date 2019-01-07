@@ -9,7 +9,7 @@ FROM Flights GROUP BY Origin, colYear, colMonth
 ORDER BY Origin, colYear, colMonth;
 
 SELECT USAirports.City, Flights.colYear, Flights.colMonth, AVG (Flights.ArrDelay)
-FROM USAirports INNER JOIN Flights
+FROM Flights LEFT JOIN USAirports
 ON USAirports.IATA = Flights.Origin
 GROUP BY USAirports.City, Flights.colYear, Flights.colMonth
 ORDER BY USAirports.City, Flights.colYear, Flights.colMonth;
